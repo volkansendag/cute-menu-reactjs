@@ -15,42 +15,42 @@ export interface OptionModelItem {
 
 const CuteMenuItem=(options: {
   element: OptionModelItem,
+  parentItem?: OptionModelItem[],
   onItemClick?: (el?: any, evt?: any) => void
 })=>{
 
-  const [state, setstate] = useState(options.element);
+
+  const [expanded, setExpanded] = useState(false);
 
   const onItemClick = (evt?: any) => {
-    if (state) {
 
-      state.expanded = !state.expanded;
-      setstate(state);
+    setExpanded(!expanded);
 
-      if (state.onClick) {
-        state.onClick(options.element, evt);
-      }
-
-
-      if (options.onItemClick) {
-        options.onItemClick(options.element, evt);
-      }
-
-      console.log(state);
+    if (options.element.onClick) {
+      options.element.onClick(options.element, evt);
     }
+
+
+    if (options.onItemClick) {
+      options.onItemClick(options.element, evt);
+    }
+
+    console.log(options);
+
   }
 
 
   return (
-    state.visible ? <li>
+    options.element.visible ? <li>
       <a onClick={(evt) => (onItemClick(evt))}>
         <div>
-          <i className={state.className}></i>
+          <i className={options.element.className}></i>
         </div>
-        <div>{state.text}</div>
+        <div>{options.element.text}</div>
       </a>
       {
-        state.items && state.expanded && <div className="cute-menu-sub-div">
-          <CuteMenuItems items={state.items} />
+        options.element.items && expanded && <div className="cute-menu-sub-div">
+          <CuteMenuItems items={options.element.items} />
         </div>
       }
     </li> : <></>
