@@ -28,7 +28,7 @@ function CuteMenuItems(options: {
   return (
     <ul className="cute-menu-body">
       {
-        options.items.map((element, i) => <CuteMenuItem key={i} element={element} onItemClick={onItemClick} />)
+        options.items.map((element, i) => <CuteMenuItem parentItem={options.items} key={i} element={element} onItemClick={onItemClick} />)
       }
     </ul >
   );
