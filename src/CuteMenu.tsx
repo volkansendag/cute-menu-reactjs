@@ -10,7 +10,7 @@ export interface OptionModel {
 }
 
 
-function CuteMenu(options: OptionModel) {
+const CuteMenu=(options: OptionModel)=> {
 
   const [visible, setVisible] = useState(false);
 

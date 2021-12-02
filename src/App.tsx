@@ -1,3 +1,4 @@
+import React, { Fragment, useContext, useEffect } from 'react'; 
 import './App.css';
 import CuteMenu from './CuteMenu';
 
@@ -36,12 +37,21 @@ const items = [{
   }],
 }];
 
-function App() {
+// const App: ()=> {
+//   return (
+    
+//     <div className="App">
+//       <CuteMenu items={items} />
+//     </div>
+//   );
+// };
+const App =()=> {
+
   return (
+    
     <div className="App">
       <CuteMenu items={items} />
     </div>
   );
-}
-
+};
 export default App;

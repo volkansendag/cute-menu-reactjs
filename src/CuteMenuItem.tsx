@@ -13,10 +13,10 @@ export interface OptionModelItem {
 }
 
 
-function CuteMenuItem(options: {
+const CuteMenuItem=(options: {
   element: OptionModelItem,
   onItemClick?: (el?: any, evt?: any) => void
-}) {
+})=>{
 
   const [state, setstate] = useState(options.element);
 
