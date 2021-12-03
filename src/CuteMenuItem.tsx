@@ -18,28 +18,23 @@ const CuteMenuItem=(options: {
   parentItem?: OptionModelItem[],
   onItemClick?: (el?: any, evt?: any) => void
 })=>{
-
-
+ debugger
   const [expanded, setExpanded] = useState(false);
 
   const onItemClick = (evt?: any) => {
-
+ 
     setExpanded(!expanded);
 
     if (options.element.onClick) {
       options.element.onClick(options.element, evt);
-    }
-
+    } 
 
     if (options.onItemClick) {
+      options.element.expanded=true;
       options.onItemClick(options.element, evt);
-    }
-
-    console.log(options);
-
+    } 
   }
-
-
+ 
   return (
     options.element.visible ? <li>
       <a onClick={(evt) => (onItemClick(evt))}>
@@ -49,8 +44,8 @@ const CuteMenuItem=(options: {
         <div>{options.element.text}</div>
       </a>
       {
-        options.element.items && expanded && <div className="cute-menu-sub-div">
-          <CuteMenuItems items={options.element.items} />
+        options.parentItem && expanded && <div className="cute-menu-sub-div">
+          <CuteMenuItems items={options.parentItem} />
         </div>
       }
     </li> : <></>

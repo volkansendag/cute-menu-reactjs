@@ -1,10 +1,11 @@
-import React, { Fragment, useContext, useEffect } from 'react'; 
 import './App.css';
 import CuteMenu from './CuteMenu';
 
-const items = [{
+const items = [
+  {
   text: "Volkan",
   visible: true,
+  expanded: false,
   className: "fas fa-thumbtack",
   onClick: (opt: any) => {
     console.log(opt);
@@ -12,6 +13,7 @@ const items = [{
 }, {
   text: "Tayfun",
   visible: true,
+  expanded: false,
   className: "fas fa-thumbtack",
   onClick: (evt: any) => {
     console.log(evt)
@@ -19,36 +21,29 @@ const items = [{
 }, {
   text: "Nedir",
   visible: true,
+  expanded: false,
   className: "fas fa-thumbtack",
   items: [{
-    text: "Hesabın",
-    visible: true,
-    className: "fas fa-thumbtack",
+  text: "Hesabın",
+  visible: true,
+  expanded: false,
+  className: "fas fa-thumbtack",
     onClick: (evt: any) => {
       console.log(evt)
     }
   }, {
     text: "Ayarlar",
     visible: true,
-    className: "fas fa-thumbtack",
+  expanded: false,
+  className: "fas fa-thumbtack",
     onClick: (evt: any) => {
       console.log(evt)
     }
   }],
 }];
 
-// const App: ()=> {
-//   return (
-    
-//     <div className="App">
-//       <CuteMenu items={items} />
-//     </div>
-//   );
-// };
-const App =()=> {
-
-  return (
-    
+const App =()=> { 
+  return ( 
     <div className="App">
       <CuteMenu items={items} />
     </div>
